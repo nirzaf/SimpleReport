@@ -21,18 +21,6 @@ namespace SimpleReport
         public static int CashierId { get; set; }
         public static int UserType { get; set; }
 
-        public static string CashierName()
-        {
-            using (BillingContext db = new BillingContext())
-            {
-                var cas = db.Employee.FirstOrDefault(c => c.EmployeeId == CashierId && !c.IsDeleted);
-                if (cas != null)
-                    return cas.EmployeeName.ToString();
-                else
-                    return string.Empty;
-            }
-        }
-
         public static bool IsAllDigits(string s)
         {
             foreach (char c in s)
